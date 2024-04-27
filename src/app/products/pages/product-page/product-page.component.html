@@ -1,5 +1,24 @@
-<p>product-page works!</p>
+<h2>Products Page</h2>
 
-<button (click)="!isProductVisible">
+<product-price 
+    *ngIf="isProductVisible"
+    [price]="currentPrice"/>
+
+<button (click)="toggle()">
     Toggle
 </button>
+<button (click)="increasePrice()">
+    Increase Price
+</button>
+
+<ul>
+    <li>
+        Make sure you show and hide the price component (by clicking the toggle button) more than once;
+        this way, you can see how you start adding multiple subscriptions to an observable which will keep
+        emitting values even after destroying the component.
+    </li>
+    <li>
+        You can address this problem by using the onDestroy hook. Uncomment the commented lines of code 
+        in the method of the PriceComponent to see how it gets fixed.
+    </li>
+</ul>

@@ -8,42 +8,52 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 export class ProductPageComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
   
   public isProductVisible: boolean = false;
+  public currentPrice: number = 10;
 
   constructor() {
-    console.log('Constructor')
+    console.log('Parent Component: Constructor')
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges');
-    console.log(`changes: ${changes}`);
+    console.log('Parent Component: ngOnChanges');
+    console.log(`changes: ${{changes}}`);
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
+    console.log('Parent Component: ngOnInit');
   }
 
   ngDoCheck(): void {
-    console.log('ngDoCheck');
+    console.log('Parent Component: ngDoCheck');
   }
   
   ngAfterContentInit(): void {
-    console.log('ngAfterContentInit');
+    console.log('Parent Component: ngAfterContentInit');
   }
 
   ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked');
+    console.log('Parent Component: ngAfterContentChecked');
   }
 
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
+    console.log('Parent Component: ngAfterViewInit');
   }
 
   ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked');
+    console.log('Parent Component: ngAfterViewChecked');
   }
 
   ngOnDestroy(): void {
-    console.log('ngOnDestroy');
+    console.log('Parent Component: ngOnDestroy');
   }
 
+  public increasePrice() {
+    this.currentPrice++;
+    console.log('IncreasePrice Button -> Changes on Input')
+  }
+
+  public toggle() {
+    this.isProductVisible = !this.isProductVisible;
+    console.log(`Toggle Button -> Child Component ${this.isProductVisible === true? 'created' : 'destroyed'}`);
+  }
 }
